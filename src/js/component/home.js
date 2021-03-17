@@ -1,24 +1,49 @@
-import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useState } from "react";
 
 //create your first component
-export function Home() {
+export function Todo() {
+	const [userInput, setUserInput] = useState("");
+	const [task, setTask] = useState([]);
+	const [count, setCount] = useState(0);
+
+	const handleInfo = () => {
+		if (userInput != null) {
+			let newArray = [...task, userInput];
+			setTask(newArray);
+			setUserInput("");
+		}
+	};
+
+	function removeTask(id) {
+		const elimTask = [...task].filter(userInput => userInput.id !== id);
+
+		setTask(elimTask);
+		setCount(count - 1);
+	}
+
 	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
+		<>
+			<div className="fondo">
+				<div className="container" className="edit">
+					<h1 className="title">Enter Your Next Task</h1>
+					<input
+						className="boton"
+						type="text"
+						requiered
+						value={userInput}
+						onChange={e => setUserInput(e.target.value)}
+						onKeyPress={e =>
+							e.key === "Enter" ? handleInfo() : ""
+						}
+					/>
+
+					{task.map((final, i) => (
+						<p key={i} onClick={() => removeTask()}>
+							{final}
+						</p>
+					))}
+				</div>
+			</div>
+		</>
 	);
 }
