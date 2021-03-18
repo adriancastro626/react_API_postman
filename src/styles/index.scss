@@ -1,20 +1,44 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
-.edit {
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: black;
+    position: relative;
+}
+
+#mainCard {
+    max-width: 40%;
+    margin: auto; 
+    background-color: white;
+    position: relative;    
+   
+}
+
+#counter {
+    font-size: 14px;
+    text-align: center;
+} 
+
+#header {
     text-align: center;
 }
 
-.boton {
-    margin: 35px;
-    background-color: white;
-    color: black;
+#botonDelete {
+    border: none;
+    background-color: white;;
 }
 
-.fondo {
-    background-color: whitesmoke;
-    
+.claseTask {
+    text-align: center;
 }
 
-.title {
-    color: yellowgreen;
+.inputClass {
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#title {
+    color: chartreuse;
 }
